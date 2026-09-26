@@ -1,8 +1,8 @@
 
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js';
-import * as THREE from 'three';
+
 import { metalness, roughness } from 'three/tsl';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/controls/OrbitControls.js';
 import { Wireframe } from 'three/examples/jsm/Addons.js';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
