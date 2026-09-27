@@ -1,12 +1,9 @@
 
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js';
 
-import { metalness, roughness } from 'three/tsl';
-
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/controls/OrbitControls.js';
-import { Wireframe } from 'three/examples/jsm/Addons.js';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
-import { Loader, Scene } from 'three/webgpu';
+
 
 const sessao1 = document.querySelector('.section1')
 const sessao2 = document.querySelector('.section2')
@@ -245,6 +242,18 @@ sessao6.appendChild(RenderizarBMW.domElement)
 const iluminarBMW = new THREE.AmbientLight(0xffffff, 2)
 CenaBMW.add(iluminarBMW)
 
+const luzPrincipal = new THREE.DirectionalLight(0xffffff, 4)
+luzPrincipal.position.set(5, 10, 10)
+CenaBMW.add(luzPrincipal)
+
+const luzFrontal = new THREE.PointLight(0xffffff, 50)
+luzFrontal.position.set(0, 3, 10)
+CenaBMW.add(luzFrontal)
+
+const luzLateral = new THREE.PointLight(0xffffff, 40)
+luzLateral.position.set(-8, 4, 3)
+CenaBMW.add(luzLateral)
+
 window.addEventListener('resize' , function(){
     CameraBMW.aspect = sessao6.clientWidth / sessao6.clientHeight
     CameraBMW.updateProjectionMatrix()
@@ -267,7 +276,7 @@ function BMWanimação(){
 RenderizarBMW.render(CenaBMW, CameraBMW)
 
 if(bmw){
-    bmw.rotation.y += 0.01
+    bmw.rotation.y += 0.04
         bmw.rotation.x += 0.01
 
 }
